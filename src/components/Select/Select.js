@@ -10,8 +10,8 @@ const Select = ({ label, value, onChange, children }) => {
 
 	return (
 		<Wrapper>
-			<SelectedValue>{displayedValue}</SelectedValue>
-			<Chevron id="chevron-down" />
+			{displayedValue}
+			<Icon id="chevron-down" />
 			<Dropdown aria-label={label} value={value} onChange={onChange}>
 				{children}
 			</Dropdown>
@@ -34,14 +34,6 @@ const Wrapper = styled.div`
 	&:hover {
 		color: ${COLORS.black};
 	}
-`;
-
-const SelectedValue = styled.div`
-	color: inherit;
-`;
-
-const Chevron = styled(Icon)`
-	color: currentColor;
 `;
 
 const Dropdown = styled.select`

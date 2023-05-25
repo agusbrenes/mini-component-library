@@ -18,14 +18,17 @@ const SIZE_VARIANT_STYLES = {
 	},
 	large: {
 		"--border-radius": "8px",
-		"--padding": "0.25rem",
-		"--height": "24px",
+		"--padding": "4px",
+		"--height": "16px",
 	},
 };
 
 const ProgressBar = ({ value, size }) => {
 	const variantStyle = SIZE_VARIANT_STYLES[size];
-	const labelId = "progressBar";
+
+	if (!variantStyle) {
+		throw new Error(`Invalid size passed to ProgressBar: ${size}`);
+	}
 
 	return (
 		<Wrapper
@@ -35,34 +38,30 @@ const ProgressBar = ({ value, size }) => {
 			aria-valuenow={value}
 			style={variantStyle}
 		>
-			<VisuallyHidden id={labelId}>{value}%</VisuallyHidden>
+			<VisuallyHidden>{value}%</VisuallyHidden>
 			<BarContainer>
-				<Bar value={value} aria-labelledby={labelId} />
+				<Bar value={value} />
 			</BarContainer>
 		</Wrapper>
 	);
 };
 
 const Wrapper = styled.div`
-	box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
 	border-radius: var(--border-radius);
 	padding: var(--padding);
-	width: 100%;
-	height: var(--height);
+	box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
 	background-color: ${COLORS.transparentGray15};
 `;
 
 const BarContainer = styled.div`
 	overflow: clip;
 	border-radius: 4px;
-	width: 100%;
-	height: 100%;
 `;
 
 const Bar = styled.div`
 	background-color: ${COLORS.primary};
 	width: ${(props) => `${props.value}%`};
-	height: inherit;
+	height: var(--height);
 `;
 
 export default ProgressBar;

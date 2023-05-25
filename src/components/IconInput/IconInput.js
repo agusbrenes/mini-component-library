@@ -21,7 +21,7 @@ const SIZE_VARIANT_STYLES = {
 	},
 };
 
-const IconInput = ({ label, icon, width = 250, size, placeholder }) => {
+const IconInput = ({ label, icon, width = 250, size, placeholder, ...delegated }) => {
 	const variantStyle = SIZE_VARIANT_STYLES[size];
 
 	if (!variantStyle) {
@@ -31,7 +31,7 @@ const IconInput = ({ label, icon, width = 250, size, placeholder }) => {
 	return (
 		<Wrapper style={variantStyle}>
 			<VisuallyHidden>{label}</VisuallyHidden>
-			<Input placeholder={placeholder} width={width} />
+			<Input placeholder={placeholder} width={width} {...delegated} />
 			<IconWrapper id={icon} />
 		</Wrapper>
 	);

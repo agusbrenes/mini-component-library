@@ -24,10 +24,11 @@ const Wrapper = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	gap: 24px;
 	border-radius: 8px;
 	padding: 12px 16px;
-	gap: 24px;
 	width: fit-content;
+	background-color: ${COLORS.transparentGray15};
 	color: ${COLORS.gray700};
 
 	&:hover {
@@ -47,14 +48,11 @@ const Dropdown = styled.select`
 	position: absolute;
 	top: 0;
 	left: 0;
+	opacity: 0;
 	cursor: pointer;
-	appearance: none;
-	border: none;
 	border-radius: inherit;
 	width: 100%;
 	height: 100%;
-	background-color: ${COLORS.transparentGray15};
-	color: transparent;
 `;
 
 export default Select;

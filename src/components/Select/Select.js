@@ -41,6 +41,7 @@ const Dropdown = styled.select`
 	top: 0;
 	left: 0;
 	cursor: pointer;
+	appearance: none;
 	border: none;
 	border-radius: inherit;
 	width: 100%;

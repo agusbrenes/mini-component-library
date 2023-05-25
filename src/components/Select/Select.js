@@ -48,11 +48,13 @@ const Dropdown = styled.select`
 	position: absolute;
 	top: 0;
 	left: 0;
-	opacity: 0;
 	cursor: pointer;
+	border: none;
 	border-radius: inherit;
 	width: 100%;
 	height: 100%;
+	background: none;
+	color: transparent;
 `;
 
 export default Select;

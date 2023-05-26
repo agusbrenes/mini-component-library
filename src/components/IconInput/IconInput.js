@@ -39,6 +39,7 @@ const IconInput = ({ label, icon, width = 250, size, placeholder, ...delegated }
 
 const Wrapper = styled.label`
 	position: relative;
+	display: block;
 	width: fit-content;
 	color: ${COLORS.gray700};
 
@@ -49,8 +50,8 @@ const Wrapper = styled.label`
 
 const Input = styled.input`
 	outline-offset: 2px;
-	border: solid ${COLORS.black};
-	border-width: 0 0 var(--border-thickness);
+	border: none;
+	border-bottom: var(--border-thickness) solid ${COLORS.black};
 	padding: var(--padding);
 	width: ${(props) => `${props.width}px`};
 	font-size: var(--font-size);
